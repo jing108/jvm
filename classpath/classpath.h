@@ -29,6 +29,14 @@ public:
     Entry *userClasspath;
 
     static ClassPath *parse(char *jreOption, char *cpOption);
+
+    /**
+     * 读取class文件
+     * @param className 文件名，带.class后缀
+     * @param data 存储读取的字节码
+     * @return 返回读取的字节数，失败返回-1
+     */
+    int readClass(char *className, char **data);
 };
 
 #endif //CH01_CLASSPATH_H

@@ -55,3 +55,18 @@ char *ClassPath::getJreDir(char *jreOption) {
 bool ClassPath::exists(char *path) {
     return !access(path, 0);
 }
+
+int ClassPath::readClass(char *className, char **data) {
+    int num;
+    num = bootClasspath->readClass(className, data);
+    if (num > 0) {
+        return num;
+    }
+
+    num = extClasspath->readClass(className, data);
+    if (num > 0) {
+        return num;
+    }
+
+    return userClasspath->readClass(className, data);
+}
