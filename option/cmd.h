@@ -16,6 +16,7 @@ private:
     int argc;
     char *usage;
     char *versionInfo;
+    char *XjreOption;
 
     CMD();
 
@@ -33,7 +34,7 @@ public:
 
     void printVersionInfo();
 
-    char *getClassPath();
+    char *getCpOption();
 
     char *getClass();
 
@@ -42,6 +43,8 @@ public:
     char **getArgs();
 
     int getArgc();
+
+    char *getJreOption();
 };
 
 #endif //CH01_CMD_H

@@ -11,7 +11,8 @@ CMD::CMD() : argc(0),
              className(nullptr),
              args(nullptr),
              usage(nullptr),
-             versionInfo(nullptr) {
+             versionInfo(nullptr),
+             XjreOption(nullptr) {
 };
 
 CMD *CMD::parseCmd(int argc, char **argv) {
@@ -27,10 +28,11 @@ CMD *CMD::parseCmd(int argc, char **argv) {
                 cmd->helpFlag = true;
                 break;
             } else if (!strcmp(param, "-cp") || !strcmp(param, "-classpath")) {
-                size_t len = strlen(argv[index + 1]) + 1;
+                index++;
+                size_t len = strlen(argv[index]) + 1;
                 cmd->cpOption = static_cast<char *>(malloc(len));
                 memcpy(cmd->cpOption, argv[index + 1], len);
-                index += 2;
+                index++;
             } else if (param[0] != '-' && !cmd->className) {
                 size_t len = strlen(param) + 1;
                 cmd->className = static_cast<char *>(malloc(len));
@@ -48,6 +50,12 @@ CMD *CMD::parseCmd(int argc, char **argv) {
                     cmd->args[i] = static_cast<char *>(malloc(strLen));
                     memcpy(cmd->args[i], argv[index - cmd->argc + i], strLen);
                 }
+            } else if (!strcmp("-Xjre", param)) {
+                index++;
+                size_t len = strlen(argv[index]) + 1;
+                cmd->XjreOption = static_cast<char *>(malloc(len));
+                memcpy(cmd->XjreOption, argv[index], len);
+                index++;
             } else {
                 cmd->helpFlag = true;
                 break;
@@ -88,12 +96,16 @@ void CMD::printVersionInfo() {
     }
 }
 
-char *CMD::getClassPath() {
+char *CMD::getCpOption() {
     return cpOption;
 }
 
 char *CMD::getClass() {
     return className;
+}
+
+char *CMD::getJreOption() {
+    return XjreOption;
 }
 
 int CMD::getArgc() {
