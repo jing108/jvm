@@ -1,6 +1,7 @@
 #include <iostream>
 #include "option/cmd.h"
 #include "classpath/classpath.h"
+#include "classfile/ClassFile.h"
 
 void startJVM(CMD *cmd) {
 
@@ -13,16 +14,18 @@ void startJVM(CMD *cmd) {
 }
 
 int main(int argc, char **argv) {
-    CMD *cmd = CMD::parseCmd(argc - 1, &argv[1]);
-    cmd->setUsage(const_cast<char *>("Usage: [-options] class [args...]\n"));
-    cmd->setVersionInfo(const_cast<char *>("version 0.0.1"));
-    if (cmd->versionFlag) {
-        cmd->printVersionInfo();
-    } else if (cmd->helpFlag) {
-        cmd->printUsage();
-    } else {
-        startJVM(cmd);
-    }
+//    CMD *cmd = CMD::parseCmd(argc - 1, &argv[1]);
+//    cmd->setUsage(const_cast<char *>("Usage: [-options] class [args...]\n"));
+//    cmd->setVersionInfo(const_cast<char *>("version 0.0.1"));
+//    if (cmd->versionFlag) {
+//        cmd->printVersionInfo();
+//    } else if (cmd->helpFlag) {
+//        cmd->printUsage();
+//    } else {
+//        startJVM(cmd);
+//    }
+
+    ClassFile *cf = ClassReader::readClass();
 
     return 0;
 }

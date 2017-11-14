@@ -3,6 +3,7 @@
 //
 
 #include "entry.h"
+#include "../utils/StringUtils.h"
 
 Entry::Entry(std::string path) {
     this->path = std::move(path);

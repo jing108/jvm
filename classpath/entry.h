@@ -5,12 +5,9 @@
 #ifndef CH01_ENTRY_H
 #define CH01_ENTRY_H
 
-#include <string>
 #include <utility>
 #include <fstream>
 #include <vector>
-
-#include "../utils/StringUtils.h"
 
 class WildcardEntry;
 

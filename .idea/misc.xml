@@ -3,7 +3,12 @@
   <component name="CMakeWorkspace" PROJECT_DIR="$PROJECT_DIR$" />
   <component name="CidrRootsConfiguration">
     <sourceRoots>
-      <file path="$PROJECT_DIR$/minizip" />
+      <file path="$PROJECT_DIR$/classfile" />
+      <file path="$PROJECT_DIR$/classfile/constantpool" />
+      <file path="$PROJECT_DIR$/classpath" />
+      <file path="$PROJECT_DIR$/option" />
+      <file path="$PROJECT_DIR$/utils" />
+      <file path="$PROJECT_DIR$/zip" />
     </sourceRoots>
   </component>
 </project>
