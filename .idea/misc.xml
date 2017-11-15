@@ -7,6 +7,7 @@
       <file path="$PROJECT_DIR$/classfile/constantpool" />
       <file path="$PROJECT_DIR$/classpath" />
       <file path="$PROJECT_DIR$/option" />
+      <file path="$PROJECT_DIR$/rtda" />
       <file path="$PROJECT_DIR$/utils" />
       <file path="$PROJECT_DIR$/zip" />
     </sourceRoots>
